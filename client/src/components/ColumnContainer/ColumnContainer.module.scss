@@ -1,0 +1,66 @@
+@import '@/styles/index.scss';
+
+.column {
+  width: toRem(350);
+  height: 80vh;
+  min-height: toRem(500);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 24px 24px 80px 0px rgba(0, 0, 0, 0.01);
+  background: $secondary-bg-color;
+  border: 1px solid $border-color;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  position: relative;
+
+  &_header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto repeat(2, 25px);
+    align-items: start;
+
+    p {
+      justify-self: center;
+      font-weight: 500;
+    }
+
+    button {
+      margin-top: 2px;
+    }
+  }
+
+  &_title {
+    text-transform: uppercase;
+  }
+
+  &_button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px dotted $border-color;
+    border-radius: 12px;
+    background: $main-bg-color;
+    padding: 0.25rem 0;
+  }
+
+  &_list {
+    width: 100%;
+    display: grid;
+    gap: 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.dots {
+  transform: rotate(90deg);
+}
