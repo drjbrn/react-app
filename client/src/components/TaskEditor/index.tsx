@@ -57,7 +57,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
       dispatch(getAllColumns());
     }
 
-    if (isEdit && taskId) {
+    if (isEdit) {
       const formattedData = {
         taskId,
         title: data.title,
