@@ -1,0 +1,66 @@
+@import '@/styles/index.scss';
+
+.board {
+  display: grid;
+  gap: 2rem;
+  margin: 1rem 0;
+
+  &_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    background: $main-bg-color;
+    padding: 1rem;
+  }
+
+  &_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &_buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    &_history {
+      font-weight: 500;
+      color: $total-white;
+      background: $accent-color;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &_add {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      color: $total-white;
+      background: $accent-color;
+      border-radius: 0.75rem;
+    }
+  }
+
+  &_columns {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: start;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
