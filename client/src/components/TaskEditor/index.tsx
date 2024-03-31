@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { closeModal } from '@/store/modalSlice';
 import { createNewTask, editTask } from '@/store/taskItem/taskItemThunks';
 import { getAllColumns } from '@/store/tasksColumn/tasksColumnThunks';
+import { getHistoryById } from '@/store/history/historyThunks';
 import { priorityList } from '@/constans/priorityList';
 import { Modal } from '../UI/Modal';
 import s from './TaskEditor.module.scss';
@@ -70,6 +71,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
       toast.success(`Success! You've edited the task.`);
       handleCloseModal();
       dispatch(getAllColumns());
+      dispatch(getHistoryById(+taskId));
     }
   };
 

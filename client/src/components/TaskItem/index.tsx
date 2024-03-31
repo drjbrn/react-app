@@ -71,7 +71,6 @@ export const TaskItem = ({
   };
 
   const handleOpenTask = async () => {
-    dispatch(getAllHistory());
     await dispatch(getHistoryById(+id));
     dispatch(openModal(`taskDetails_${id}`));
   };
