@@ -38,7 +38,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
   const handleCloseModal = () => {
     methods.reset();
     dispatch(closeModal('createNewTask'));
-    dispatch(closeModal('editTask'));
+    dispatch(closeModal(`editTask_${taskId}`));
   };
 
   const onSubmit = async (data: TaskEditorForm) => {
@@ -57,7 +57,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
       dispatch(getAllColumns());
     }
 
-    if (isEdit) {
+    if (isEdit && taskId) {
       const formattedData = {
         taskId,
         title: data.title,
@@ -76,7 +76,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
   };
 
   return (
-    <Modal modalId={isNewTask ? 'createNewTask' : 'editTask'}>
+    <Modal modalId={isNewTask ? 'createNewTask' : `editTask_${taskId}`}>
       <>
         <h4 className={s.title}>
           {isNewTask ? 'Create new task' : 'Edit task'}

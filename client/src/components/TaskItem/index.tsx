@@ -52,7 +52,7 @@ export const TaskItem = ({
 
   const handleEditTask = async () => {
     await dispatch(getTaskById(+id));
-    dispatch(openModal('editTask'));
+    dispatch(openModal(`editTask_${id}`));
   };
 
   const handleMoveTaskToAnotherColumn = async (value: string, option: any) => {
