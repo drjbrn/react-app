@@ -8,6 +8,7 @@ import {
   AiOutlineFolderOpen,
 } from 'react-icons/ai';
 
+import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { openModal } from '@/store/modalSlice';
 import {
@@ -45,6 +46,7 @@ export const TaskItem = ({
 
   const handleDeleteTask = async () => {
     await dispatch(removeTask(+id));
+    toast.success(`Task successfully deleted.`);
     dispatch(getAllColumns());
   };
 
@@ -63,6 +65,7 @@ export const TaskItem = ({
         column: selectedId as number,
       };
       await dispatch(editTask(data));
+      toast.success(`Task successfully moved to another column.`);
       dispatch(getAllColumns());
     }
   };

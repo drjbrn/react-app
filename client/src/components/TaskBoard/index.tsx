@@ -1,5 +1,6 @@
 import { AiOutlinePlus } from 'react-icons/ai';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { openModal } from '@/store/modalSlice';
 import { getAllHistory } from '@/store/history/historyThunks';
@@ -35,6 +36,7 @@ export const TaskBoard = () => {
       column: destinationColumnId,
     };
     await dispatch(editTask(newData));
+    toast.success(`Task successfully moved to another column.`);
     dispatch(getAllColumns());
   };
 

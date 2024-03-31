@@ -50,7 +50,7 @@ export const ColumnEditor = ({
   const onSubmit = async (data: FormColumnEditorData) => {
     if (isNewColumn) {
       await dispatch(createNewColumn(data.title));
-      toast.success(`Success! You've create the column.`);
+      toast.success(`Success! You've created the column.`);
       handleCloseModal();
       dispatch(getAllColumns());
     }

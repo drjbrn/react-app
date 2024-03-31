@@ -9,6 +9,7 @@ import {
   useForm,
 } from 'react-hook-form';
 import { IoIosArrowDown } from 'react-icons/io';
+import { toast } from 'react-toastify';
 import { TaskEditorForm } from '@/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { closeModal } from '@/store/modalSlice';
@@ -50,6 +51,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
       };
 
       await dispatch(createNewTask(formattedData));
+      toast.success(`Success! You've created the new task.`);
       handleCloseModal();
       dispatch(getAllColumns());
     }
@@ -65,6 +67,7 @@ export const TaskEditor = ({ isNewTask, isEdit, taskId }: TaskEditorProps) => {
       };
 
       await dispatch(editTask(formattedData));
+      toast.success(`Success! You've edited the task.`);
       handleCloseModal();
       dispatch(getAllColumns());
     }
