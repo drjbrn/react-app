@@ -28,6 +28,7 @@ interface TaskItemProps {
   description: string;
   priority?: string;
   dueDate?: string;
+  columnId?: number;
 }
 
 export const TaskItem = ({
@@ -36,13 +37,16 @@ export const TaskItem = ({
   description,
   priority,
   dueDate,
+  columnId,
 }: TaskItemProps) => {
   const dispatch = useAppDispatch();
   const isOpenModal = useAppSelector((state) => state.modal[`editTask_${id}`]);
-  const columnList = useAppSelector((state) => state.tasksColumn.columnList);
   const isOpenTask = useAppSelector(
     (state) => state.modal[`taskDetails_${id}`],
-  );
+    );
+
+  const columnList = useAppSelector((state) => state.tasksColumn.columnList);
+  const filteredColumnList = columnList.filter(column => column.id !== columnId);
 
   const handleDeleteTask = async () => {
     await dispatch(removeTask(+id));
@@ -130,7 +134,7 @@ export const TaskItem = ({
           placeholder='Move to'
           optionFilterProp='children'
           suffixIcon={<IoIosArrowDown />}
-          options={columnList}
+          options={filteredColumnList}
           onChange={handleMoveTaskToAnotherColumn}
         />
       </div>

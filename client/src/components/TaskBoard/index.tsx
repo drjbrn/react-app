@@ -27,17 +27,20 @@ export const TaskBoard = () => {
   };
 
   const onDragEnd = async (result: any) => {
-    const { draggableId, destination } = result;
+    const { draggableId, source, destination } = result;
     const taskId = draggableId;
+    const sourceColumnId = source.droppableId;
     const destinationColumnId = destination?.droppableId;
 
-    const newData = {
-      taskId,
-      column: destinationColumnId,
-    };
-    await dispatch(editTask(newData));
-    toast.success(`Task successfully moved to another column.`);
-    dispatch(getAllColumns());
+    if (sourceColumnId !== destinationColumnId) {
+      const newData = {
+        taskId,
+        column: destinationColumnId,
+      };
+      await dispatch(editTask(newData));
+      toast.success(`Task successfully moved to another column.`);
+      dispatch(getAllColumns());
+    }
   };
 
   return (

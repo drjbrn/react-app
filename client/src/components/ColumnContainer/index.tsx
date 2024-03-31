@@ -7,6 +7,7 @@ import {
   AiOutlineEllipsis,
   AiOutlinePlus,
 } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 import { Task } from '@/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { openModal } from '@/store/modalSlice';
@@ -48,6 +49,7 @@ export const ColumnContainer = ({
 
   const handleDeleteColumn = async () => {
     await dispatch(deleteColumn(+columnId));
+    toast.success(`Column successfully deleted.`);
     dispatch(getAllColumns());
   };
 
@@ -124,6 +126,7 @@ export const ColumnContainer = ({
                         description={description}
                         priority={priority}
                         dueDate={dueDate}
+                        columnId={+columnId}
                       />
                     </div>
                   )}
