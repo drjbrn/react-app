@@ -1,0 +1,52 @@
+{
+  "name": "vite-react-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.2",
+    "antd": "^5.15.3",
+    "axios": "^1.6.8",
+    "dayjs": "^1.11.10",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.1",
+    "react-icons": "^5.0.1",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.9.0",
+    "react-toastify": "^10.0.5"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.0.28",
+    "@types/react-beautiful-dnd": "^13.1.8",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "2.8.6",
+    "sass": "^1.68.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.4.9"
+  }
+}
