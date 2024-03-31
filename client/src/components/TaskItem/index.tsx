@@ -17,7 +17,7 @@ import {
   removeTask,
 } from '@/store/taskItem/taskItemThunks';
 import { getAllColumns } from '@/store/tasksColumn/tasksColumnThunks';
-import { getAllHistory, getHistoryById } from '@/store/history/historyThunks';
+import { getHistoryById } from '@/store/history/historyThunks';
 import { TaskDetailsModal } from '../TaskDetailsModal';
 import { TaskEditor } from '../TaskEditor';
 import s from './TaskItem.module.scss';
@@ -38,7 +38,7 @@ export const TaskItem = ({
   dueDate,
 }: TaskItemProps) => {
   const dispatch = useAppDispatch();
-  const isOpenModal = useAppSelector((state) => state.modal.editTask);
+  const isOpenModal = useAppSelector((state) => state.modal[`editTask_${id}`]);
   const columnList = useAppSelector((state) => state.tasksColumn.columnList);
   const isOpenTask = useAppSelector(
     (state) => state.modal[`taskDetails_${id}`],
