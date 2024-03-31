@@ -3,10 +3,16 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TasksModule } from './tasks/tasks.module';
+import { TaskColumnsModule } from './task-columns/task-columns.module';
+import { ActivityLogModule } from './activity-log/activity-log.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    TasksModule,
+    TaskColumnsModule,
+    ActivityLogModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
